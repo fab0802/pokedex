@@ -1,0 +1,60 @@
+:root {
+  --primary-color: hsl(0, 0%, 10%);
+  --secondary-color: hsl(0, 0%, 90%);
+  --shadow-color: hsla(0, 67%, 58%, 0.6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+  color: var(--primary-color);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--primary-color) url(./img/pokemon-universe.jpg) no-repeat
+    fixed center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  width: 100%;
+  height: fit-content;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 2px 15px 2px var(--shadow-color);
+  background: var(--primary-color);
+  position: fixed;
+}
+
+header .logo {
+  display: flex;
+}
+
+header .logo img {
+  height: 2.5rem;
+}
+
+header .title {
+  color: var(--secondary-color);
+  font-family: "Russo One", sans-serif;
+  font-size: 3rem;
+}
+
+header .search input {
+  height: 2rem;
+  width: 12rem;
+  padding: 0.5rem;
+  outline: none;
+  border-radius: 0.5rem;
+}
