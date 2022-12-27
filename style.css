@@ -10,9 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Orbitron", sans-serif;
-  font-family: "Press Start 2P", cursive;
-  font-weight: 200;
+  font-family: "Ubuntu", sans-serif;
 }
 
 html,
@@ -106,9 +104,14 @@ main {
   z-index: 1;
 }
 
-.poke-card .name,
-.poke-card .type {
+.poke-card .name {
   text-transform: capitalize;
+}
+
+.poke-card .name,
+.poke-card .id,
+.poke-card .type {
+  font-family: "Press Start 2P", cursive;
 }
 
 .poke-card .types {
@@ -119,6 +122,7 @@ main {
 }
 
 .poke-card .type {
+  font-size: 0.75rem;
   padding: 0.5rem;
   width: fit-content;
   border-radius: 1rem;
