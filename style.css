@@ -1,9 +1,10 @@
 :root {
   --primary-color: hsl(0, 0%, 10%);
   --secondary-color: hsl(0, 0%, 90%);
-  --shadow-color: hsla(0, 10%, 83%, 0.9);
+  --shadow-color: hsla(0, 0%, 90%, 0.8);
   --poke-card-opacity: 1;
   --poke-card-gradient-angle: 180deg;
+  --category-shadow-effect: 10px -2px;
 }
 
 * {
@@ -33,7 +34,7 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 0px 2px 15px 2px var(--shadow-color);
+  box-shadow: 0px -10px 15px 10px var(--shadow-color);
   background: var(--primary-color);
   position: fixed;
   top: 0;
@@ -107,9 +108,9 @@ main {
   overflow: hidden;
 }
 
-.poke-card:hover {
-  box-shadow: 0px 2px 15px 2px var(--shadow-color);
-}
+/* .poke-card:hover {
+  box-shadow: 0px 0px 15px 5px var(--shadow-color);
+} */
 
 .poke-card:hover .image > img {
   scale: 1.2;
@@ -165,87 +166,249 @@ main {
 /* Category Colors */
 
 .bug {
-  background: hsla(83, 54%, 55%, var(--poke-card-opacity));
+  --category-color-bug: hsla(83, 54%, 55%, var(--poke-card-opacity));
+  background: var(--category-color-bug);
+}
+
+.poke-card.bug:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-bug),
+    5px 0 var(--category-shadow-effect) var(--category-color-bug),
+    -5px 0 var(--category-shadow-effect) var(--category-color-bug),
+    0 5px var(--category-shadow-effect) var(--category-color-bug);
 }
 
 .dragon {
+  --category-color-dragon: hsla(200, 56%, 56%, var(--poke-card-opacity));
+  --category-color-dragon-secondary: hsla(
+    8,
+    83%,
+    63%,
+    var(--poke-card-opacity)
+  );
   background: linear-gradient(
     var(--poke-card-gradient-angle),
-    hsla(200, 56%, 56%, var(--poke-card-opacity)) 0%,
-    hsla(8, 83%, 63%, var(--poke-card-opacity)) 100%
+    var(--category-color-dragon) 0%,
+    var(--category-color-dragon-secondary) 100%
   );
+}
+
+.poke-card.dragon:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-dragon),
+    5px 0 var(--category-shadow-effect) var(--category-color-dragon),
+    -5px 0 var(--category-shadow-effect) var(--category-color-dragon-secondary),
+    0 5px var(--category-shadow-effect) var(--category-color-dragon-secondary);
 }
 
 .fairy {
-  background: hsla(317, 91%, 85%, var(--poke-card-opacity));
+  --category-color-fairy: hsla(317, 91%, 85%, var(--poke-card-opacity));
+  background: var(--category-color-fairy);
+}
+
+.poke-card.fairy:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-fairy),
+    5px 0 var(--category-shadow-effect) var(--category-color-fairy),
+    -5px 0 var(--category-shadow-effect) var(--category-color-fairy),
+    0 5px var(--category-shadow-effect) var(--category-color-fairy);
 }
 
 .fire {
-  background: hsla(24, 97%, 56%, var(--poke-card-opacity));
+  --category-color-fire: hsla(24, 97%, 56%, var(--poke-card-opacity));
+  background: var(--category-color-fire);
+}
+
+.poke-card.fire:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-fire),
+    5px 0 var(--category-shadow-effect) var(--category-color-fire),
+    -5px 0 var(--category-shadow-effect) var(--category-color-fire),
+    0 5px var(--category-shadow-effect) var(--category-color-fire);
 }
 
 .ghost {
-  background: hsla(263, 25%, 50%, var(--poke-card-opacity));
+  --category-color-ghost: hsla(263, 25%, 50%, var(--poke-card-opacity));
+  background: var(--category-color-ghost);
+}
+
+.poke-card.ghost:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-ghost),
+    5px 0 var(--category-shadow-effect) var(--category-color-ghost),
+    -5px 0 var(--category-shadow-effect) var(--category-color-ghost),
+    0 5px var(--category-shadow-effect) var(--category-color-ghost);
 }
 
 .ground {
+  --category-color-ground: hsla(51, 92%, 60%, var(--poke-card-opacity));
+  --category-color-ground-secondary: hsla(
+    49,
+    44%,
+    46%,
+    var(--poke-card-opacity)
+  );
   background: linear-gradient(
     var(--poke-card-gradient-angle),
-    hsla(51, 92%, 60%, var(--poke-card-opacity)) 0%,
-    hsla(49, 44%, 46%, var(--poke-card-opacity)) 100%
+    var(--category-color-ground) 0%,
+    var(--category-color-ground-secondary) 100%
   );
+}
+
+.poke-card.ground:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-ground),
+    5px 0 var(--category-shadow-effect) var(--category-color-ground),
+    -5px 0 var(--category-shadow-effect) var(--category-color-ground-secondary),
+    0 5px var(--category-shadow-effect) var(--category-color-ground-secondary);
 }
 
 .normal {
-  background: hsla(196, 6%, 66%, var(--poke-card-opacity));
+  --category-color-normal: hsla(196, 6%, 66%, var(--poke-card-opacity));
+  background: var(--category-color-normal);
+}
+
+.poke-card.normal:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-normal),
+    5px 0 var(--category-shadow-effect) var(--category-color-normal),
+    -5px 0 var(--category-shadow-effect) var(--category-color-normal),
+    0 5px var(--category-shadow-effect) var(--category-color-normal);
 }
 
 .psychic {
-  background: hsla(324, 85%, 67%, var(--poke-card-opacity));
+  --category-color-psychic: hsla(324, 85%, 67%, var(--poke-card-opacity));
+  background: var(--category-color-psychic);
+}
+
+.poke-card.psychic:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-psychic),
+    5px 0 var(--category-shadow-effect) var(--category-color-psychic),
+    -5px 0 var(--category-shadow-effect) var(--category-color-psychic),
+    0 5px var(--category-shadow-effect) var(--category-color-psychic);
 }
 
 .steel {
-  background: hsla(180, 15%, 66%, var(--poke-card-opacity));
+  --category-color-steel: hsla(180, 15%, 66%, var(--poke-card-opacity));
+  background: var(--category-color-steel);
+}
+
+.poke-card.steel:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-steel),
+    5px 0 var(--category-shadow-effect) var(--category-color-steel),
+    -5px 0 var(--category-shadow-effect) var(--category-color-steel),
+    0 5px var(--category-shadow-effect) var(--category-color-steel);
 }
 
 .dark {
-  background: hsla(0, 0%, 43%, var(--poke-card-opacity));
+  --category-color-dark: hsla(0, 0%, 43%, var(--poke-card-opacity));
+  background: var(--category-color-dark);
+}
+
+.poke-card.dark:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-dark),
+    5px 0 var(--category-shadow-effect) var(--category-color-dark),
+    -5px 0 var(--category-shadow-effect) var(--category-color-dark),
+    0 5px var(--category-shadow-effect) var(--category-color-dark);
 }
 
 .electric {
-  background: hsla(52, 83%, 56%, var(--poke-card-opacity));
+  --category-color-electric: hsla(52, 83%, 56%, var(--poke-card-opacity));
+  background: var(--category-color-electric);
+}
+
+.poke-card.electric:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-electric),
+    5px 0 var(--category-shadow-effect) var(--category-color-electric),
+    -5px 0 var(--category-shadow-effect) var(--category-color-electric),
+    0 5px var(--category-shadow-effect) var(--category-color-electric);
 }
 
 .fighting {
-  background: hsla(23, 72%, 48%, var(--poke-card-opacity));
+  --category-color-fighting: hsla(23, 72%, 48%, var(--poke-card-opacity));
+  background: var(--category-color-fighting);
+}
+
+.poke-card.fighting:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-fighting),
+    5px 0 var(--category-shadow-effect) var(--category-color-fighting),
+    -5px 0 var(--category-shadow-effect) var(--category-color-fighting),
+    0 5px var(--category-shadow-effect) var(--category-color-fighting);
 }
 
 .flying {
+  --category-color-flying: hsla(193, 83%, 58%, var(--poke-card-opacity));
+  --category-color-flying-secondary: hsla(
+    414,
+    2%,
+    72%,
+    var(--poke-card-opacity)
+  );
   background: linear-gradient(
     var(--poke-card-gradient-angle),
-    hsla(193, 83%, 58%, var(--poke-card-opacity)) 0%,
-    hsla(414, 2%, 72%, var(--poke-card-opacity)) 100%
+    var(--category-color-flying) 0%,
+    var(--category-color-flying-secondary) 100%
   );
 }
 
+.poke-card.flying:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-flying),
+    5px 0 var(--category-shadow-effect) var(--category-color-flying),
+    -5px 0 var(--category-shadow-effect) var(--category-color-flying-secondary),
+    0 5px var(--category-shadow-effect) var(--category-color-flying-secondary);
+}
+
 .grass {
-  background: hsla(83, 54%, 55%, var(--poke-card-opacity));
+  --category-color-grass: hsla(83, 54%, 55%, var(--poke-card-opacity));
+  background: var(--category-color-grass);
+}
+
+.poke-card.grass:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-grass),
+    5px 0 var(--category-shadow-effect) var(--category-color-grass),
+    -5px 0 var(--category-shadow-effect) var(--category-color-grass),
+    0 5px var(--category-shadow-effect) var(--category-color-grass);
 }
 
 .ice {
-  background: hsla(194, 76%, 61%, var(--poke-card-opacity));
+  --category-color-ice: hsla(194, 76%, 61%, var(--poke-card-opacity));
+  background: var(--category-color-ice);
+}
+
+.poke-card.ice:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-ice),
+    5px 0 var(--category-shadow-effect) var(--category-color-ice),
+    -5px 0 var(--category-shadow-effect) var(--category-color-ice),
+    0 5px var(--category-shadow-effect) var(--category-color-ice);
 }
 
 .poison {
-  background: hsla(287, 41%, 64%, var(--poke-card-opacity));
+  --category-color-poison: hsla(287, 41%, 64%, var(--poke-card-opacity));
+  background: var(--category-color-poison);
+}
+
+.poke-card.poison:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-poison),
+    5px 0 var(--category-shadow-effect) var(--category-color-poison),
+    -5px 0 var(--category-shadow-effect) var(--category-color-poison),
+    0 5px var(--category-shadow-effect) var(--category-color-poison);
 }
 
 .rock {
-  background: hsla(49, 66%, 38%, var(--poke-card-opacity));
+  --category-color-rock: hsla(49, 66%, 38%, var(--poke-card-opacity));
+  background: var(--category-color-rock);
+}
+
+.poke-card.rock:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-rock),
+    5px 0 var(--category-shadow-effect) var(--category-color-rock),
+    -5px 0 var(--category-shadow-effect) var(--category-color-rock),
+    0 5px var(--category-shadow-effect) var(--category-color-rock);
 }
 
 .water {
-  background: hsla(204, 52%, 52%, var(--poke-card-opacity));
+  --category-color-water: hsla(204, 52%, 52%, var(--poke-card-opacity));
+  background: var(--category-color-water);
+}
+
+.poke-card.water:hover {
+  box-shadow: 0 -5px var(--category-shadow-effect) var(--category-color-water),
+    5px 0 var(--category-shadow-effect) var(--category-color-water),
+    -5px 0 var(--category-shadow-effect) var(--category-color-water),
+    0 5px var(--category-shadow-effect) var(--category-color-water);
 }
 
 /* Mobile views */
