@@ -9,49 +9,64 @@ const API_URL_TYPES = "https://pokeapi.co/api/v2/type/"; //to get german type na
 const pokeCardContainer = document.querySelector(".poke-card-container");
 
 let startPokemon = 1;
-let endPokemon = 151;
+let endPokemon = 20;
+const loadMoreCount = endPokemon;
+const loadingEnd = 151;
+let loadingComplete = false;
 
 async function renderPokemons() {
-  pokeCardContainer.innerHTML = "";
   for (let i = startPokemon; i <= endPokemon; i++) {
+    if (loadingComplete) return;
     const pokemon = await loadPokemon(i);
-    // const germanName = await loadGermanName(i);
-    pokeCardContainer.innerHTML += createPokeCardHtml(pokemon, i);
-    console.log(i);
+    const germanName = await loadGermanName(i);
+    pokeCardContainer.innerHTML += await createPokeCardHtml(
+      pokemon,
+      germanName,
+      i
+    );
+    if (i === loadingEnd) loadingComplete = true;
   }
+  startPokemon += loadMoreCount;
+  endPokemon += loadMoreCount;
 }
 
 async function loadPokemon(id) {
   const response = await fetch(`${API_URL_POKEMONS}${id}`).catch(errorFunction);
   const pokemonJson = await response.json();
-  //   allPokemons.push(pokemonJson);
-  //   console.log(typeof allPokemons);
   return pokemonJson;
 }
 
-// async function loadGermanName(id) {
-//   const response = await fetch(`${API_URL_SPECIES}${id}`).catch(errorFunction);
-//   const speciesJson = await response.json();
-//   console.log(speciesJson.names[5].name);
-//   return speciesJson.names[5].name;
-// }
+async function loadGermanName(id) {
+  const response = await fetch(`${API_URL_SPECIES}${id}`).catch(errorFunction);
+  const speciesJson = await response.json();
+  return speciesJson.names[5].name;
+}
+
+async function loadGermanTypeName(id) {
+  const response = await fetch(`${API_URL_TYPES}${id}`).catch(errorFunction);
+  const typesJson = await response.json();
+  return typesJson.names[4].name;
+}
 
 function errorFunction() {
   console.log("Fehler aufgetreten");
 }
 
-function createPokeCardHtml(pokemon, i) {
+async function createPokeCardHtml(pokemon, germanName, i) {
   return `
         <div class="poke-card ${
           pokemon.types[0].type.name
         }" id="poke-card-${i}">
             <div class="name-id">
-            <div class="name">${pokemon.name}</div>
+            <div class="name">${
+              //pokemon.name
+              germanName
+            }</div>
             <div class="id">#${String(pokemon.id).padStart(3, "0")}</div>
             </div>
             <div class="types-image">
             <div class="types">
-                ${createTypesHtml(pokemon)}
+                ${await createTypesHtml(pokemon)}
             </div>
             <div class="image">
                 <img
@@ -64,12 +79,14 @@ function createPokeCardHtml(pokemon, i) {
     `;
 }
 
-function createTypesHtml(pokemon) {
+async function createTypesHtml(pokemon) {
   const types = pokemon.types;
   let typesHtml = "";
   for (let type of types) {
+    const typeId = String(type.type.url).split("/")[6];
+    const germanTypeName = await loadGermanTypeName(typeId);
     typesHtml += `
-        <div class="type ${type.type.name}">${type.type.name}</div>
+        <div class="type ${type.type.name}">${germanTypeName}</div>
     `;
   }
   return typesHtml;
