@@ -2,7 +2,7 @@
   --primary-color: hsl(0, 0%, 10%);
   --secondary-color: hsl(0, 0%, 90%);
   --shadow-color: hsla(0, 10%, 83%, 0.9);
-  --poke-card-opacity: 0.9;
+  --poke-card-opacity: 1;
   --poke-card-gradient-angle: 180deg;
 }
 
@@ -23,7 +23,7 @@ body {
     fixed center;
   background-size: cover;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 header {
@@ -36,6 +36,7 @@ header {
   box-shadow: 0px 2px 15px 2px var(--shadow-color);
   background: var(--primary-color);
   position: fixed;
+  top: 0;
   z-index: 2;
 }
 
@@ -44,7 +45,7 @@ header {
 }
 
 .logo img {
-  height: 2.5rem;
+  height: 40px;
 }
 
 .title {
@@ -63,15 +64,32 @@ header {
 }
 
 main {
-  margin-top: 6.5rem;
+  margin-top: 4.5rem;
+}
+
+.loading-animation {
+  width: 100px;
+  height: 100px;
+  background: hsla(0, 0%, 10%, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
 }
 
 .poke-card-container {
+  margin-top: 2rem;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
+  position: relative;
 }
 
 .poke-card {
@@ -138,6 +156,10 @@ main {
   height: 140px;
   max-width: 140px;
   transition: scale 200ms ease-in-out;
+}
+
+.poke-card:last-child {
+  margin-bottom: 2rem;
 }
 
 /* Category Colors */
@@ -224,4 +246,41 @@ main {
 
 .water {
   background: hsla(204, 52%, 52%, var(--poke-card-opacity));
+}
+
+/* Mobile views */
+
+@media (max-width: 60rem) {
+  body {
+    background: var(--primary-color);
+  }
+
+  header {
+    box-shadow: unset;
+  }
+}
+
+@media (max-width: 30rem) {
+  .search {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
+    padding: 1rem 0 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--primary-color);
+    z-index: 2;
+  }
+
+  .search input {
+    width: 80%;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+
+  .poke-card:last-child {
+    margin-bottom: 6rem;
+  }
 }
