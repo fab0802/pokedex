@@ -1,0 +1,319 @@
+/* type Colors */
+
+.bug {
+  background: url("../img/types/bug.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.bug:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-bug),
+    5px 0 var(--type-shadow-effect) var(--type-color-bug),
+    -5px 0 var(--type-shadow-effect) var(--type-color-bug),
+    0 5px var(--type-shadow-effect) var(--type-color-bug);
+}
+
+.bug-label {
+  background: var(--type-color-bug);
+}
+
+.dragon {
+  background: url("../img/types/dragon.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.dragon:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-dragon),
+    5px 0 var(--type-shadow-effect) var(--type-color-dragon),
+    -5px 0 var(--type-shadow-effect) var(--type-color-dragon-secondary),
+    0 5px var(--type-shadow-effect) var(--type-color-dragon-secondary);
+}
+
+.dragon-label {
+  background: linear-gradient(
+    var(--poke-card-gradient-angle),
+    var(--type-color-dragon) 0%,
+    var(--type-color-dragon-secondary) 100%
+  );
+}
+
+.fairy {
+  background: url("../img/types/fairy.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.fairy:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-fairy),
+    5px 0 var(--type-shadow-effect) var(--type-color-fairy),
+    -5px 0 var(--type-shadow-effect) var(--type-color-fairy),
+    0 5px var(--type-shadow-effect) var(--type-color-fairy);
+}
+
+.fairy-label {
+  background: var(--type-color-fairy);
+}
+
+.fire {
+  background: url("../img/types/fire.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.fire:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-fire),
+    5px 0 var(--type-shadow-effect) var(--type-color-fire),
+    -5px 0 var(--type-shadow-effect) var(--type-color-fire),
+    0 5px var(--type-shadow-effect) var(--type-color-fire);
+}
+
+.fire-label {
+  background: var(--type-color-fire);
+}
+
+.ghost {
+  background: url("../img/types/ghost.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.ghost:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-ghost),
+    5px 0 var(--type-shadow-effect) var(--type-color-ghost),
+    -5px 0 var(--type-shadow-effect) var(--type-color-ghost),
+    0 5px var(--type-shadow-effect) var(--type-color-ghost);
+}
+
+.ghost-label {
+  background: var(--type-color-ghost);
+}
+
+.ground {
+  background: url("../img/types/ground.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.ground:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-ground),
+    5px 0 var(--type-shadow-effect) var(--type-color-ground),
+    -5px 0 var(--type-shadow-effect) var(--type-color-ground-secondary),
+    0 5px var(--type-shadow-effect) var(--type-color-ground-secondary);
+}
+
+.ground-label {
+  background: linear-gradient(
+    var(--poke-card-gradient-angle),
+    var(--type-color-ground) 0%,
+    var(--type-color-ground-secondary) 100%
+  );
+}
+
+.normal {
+  background: url("../img/types/normal.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.normal:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-normal),
+    5px 0 var(--type-shadow-effect) var(--type-color-normal),
+    -5px 0 var(--type-shadow-effect) var(--type-color-normal),
+    0 5px var(--type-shadow-effect) var(--type-color-normal);
+}
+
+.normal-label {
+  background: var(--type-color-normal);
+}
+
+.psychic {
+  background: url("../img/types/psychic.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.psychic:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-psychic),
+    5px 0 var(--type-shadow-effect) var(--type-color-psychic),
+    -5px 0 var(--type-shadow-effect) var(--type-color-psychic),
+    0 5px var(--type-shadow-effect) var(--type-color-psychic);
+}
+
+.psychic-label {
+  background: var(--type-color-psychic);
+}
+
+.steel {
+  background: url("../img/types/steel.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.steel:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-steel),
+    5px 0 var(--type-shadow-effect) var(--type-color-steel),
+    -5px 0 var(--type-shadow-effect) var(--type-color-steel),
+    0 5px var(--type-shadow-effect) var(--type-color-steel);
+}
+
+.steel-label {
+  background: var(--type-color-steel);
+}
+
+.dark {
+  background: url("../img/types/dark.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.dark:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-dark),
+    5px 0 var(--type-shadow-effect) var(--type-color-dark),
+    -5px 0 var(--type-shadow-effect) var(--type-color-dark),
+    0 5px var(--type-shadow-effect) var(--type-color-dark);
+}
+
+.dark-label {
+  background: var(--type-color-dark);
+}
+
+.electric {
+  background: url("../img/types/electric.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.electric:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-electric),
+    5px 0 var(--type-shadow-effect) var(--type-color-electric),
+    -5px 0 var(--type-shadow-effect) var(--type-color-electric),
+    0 5px var(--type-shadow-effect) var(--type-color-electric);
+}
+
+.electric-label {
+  background: var(--type-color-electric);
+}
+
+.fighting {
+  background: url("../img/types/fighting.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.fighting:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-fighting),
+    5px 0 var(--type-shadow-effect) var(--type-color-fighting),
+    -5px 0 var(--type-shadow-effect) var(--type-color-fighting),
+    0 5px var(--type-shadow-effect) var(--type-color-fighting);
+}
+
+.fighting-label {
+  background: var(--type-color-fighting);
+}
+
+.flying {
+  background: url("../img/types/flying.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.flying:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-flying),
+    5px 0 var(--type-shadow-effect) var(--type-color-flying),
+    -5px 0 var(--type-shadow-effect) var(--type-color-flying-secondary),
+    0 5px var(--type-shadow-effect) var(--type-color-flying-secondary);
+}
+
+.flying-label {
+  background: linear-gradient(
+    var(--poke-card-gradient-angle),
+    var(--type-color-flying) 0%,
+    var(--type-color-flying-secondary) 100%
+  );
+}
+
+.grass {
+  background: url("../img/types/grass.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.grass:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-grass),
+    5px 0 var(--type-shadow-effect) var(--type-color-grass),
+    -5px 0 var(--type-shadow-effect) var(--type-color-grass),
+    0 5px var(--type-shadow-effect) var(--type-color-grass);
+}
+
+.grass-label {
+  background: var(--type-color-grass);
+}
+
+.ice {
+  background: url("../img/types/ice.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.ice:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-ice),
+    5px 0 var(--type-shadow-effect) var(--type-color-ice),
+    -5px 0 var(--type-shadow-effect) var(--type-color-ice),
+    0 5px var(--type-shadow-effect) var(--type-color-ice);
+}
+
+.ice-label {
+  background: var(--type-color-ice);
+}
+
+.poison {
+  background: url("../img/types/poison.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.poison:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-poison),
+    5px 0 var(--type-shadow-effect) var(--type-color-poison),
+    -5px 0 var(--type-shadow-effect) var(--type-color-poison),
+    0 5px var(--type-shadow-effect) var(--type-color-poison);
+}
+
+.poison-label {
+  background: var(--type-color-poison);
+}
+
+.rock {
+  background: url("../img/types/rock.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.rock:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-rock),
+    5px 0 var(--type-shadow-effect) var(--type-color-rock),
+    -5px 0 var(--type-shadow-effect) var(--type-color-rock),
+    0 5px var(--type-shadow-effect) var(--type-color-rock);
+}
+
+.type.rock-label {
+  background: var(--type-color-rock);
+}
+
+.water {
+  background: url("../img/types/water.png") no-repeat;
+  background-position: var(--type-background-position);
+  background-size: var(--type-background-size);
+}
+
+.poke-card.water:hover {
+  box-shadow: 0 -5px var(--type-shadow-effect) var(--type-color-water),
+    5px 0 var(--type-shadow-effect) var(--type-color-water),
+    -5px 0 var(--type-shadow-effect) var(--type-color-water),
+    0 5px var(--type-shadow-effect) var(--type-color-water);
+}
+
+.type.water-label {
+  background: var(--type-color-water);
+}

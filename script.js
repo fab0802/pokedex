@@ -8,8 +8,10 @@ const API_URL_TYPES = "https://pokeapi.co/api/v2/type/"; //to get german type na
 
 const pokeCardContainer = document.querySelector(".poke-card-container");
 
+// 649 pokemons with images in the set dream-world
+// 905 (all) pokemons with images in the set official-artwork
 let startPokemon = 1;
-let endPokemon = 20;
+let endPokemon = 151;
 const loadMoreCount = endPokemon;
 const loadingEnd = 151;
 let loadingComplete = false;
@@ -86,10 +88,33 @@ async function createTypesHtml(pokemon) {
     const typeId = String(type.type.url).split("/")[6];
     const germanTypeName = await loadGermanTypeName(typeId);
     typesHtml += `
-        <div class="type ${type.type.name}">${germanTypeName}</div>
+        <div class="type ${type.type.name}-label">${germanTypeName}</div>
     `;
   }
   return typesHtml;
 }
 
 renderPokemons();
+
+window.addEventListener("scroll", function () {
+  // if (window.scrollY > 500) renderPokemons();
+  // console.log("scrollY", window.scrollY);
+  // console.log("innerHeigth", window.innerHeight);
+  // console.log("offsetHeight", document.body.offsetHeight);
+});
+
+function loadContentOnScroll() {
+  // Warten, bis der Benutzer den Bildlauf beendet hat
+  window.onscroll = function (event) {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      // Laden Sie weiteren Inhalt
+      // loadPokemon();
+
+      console.log("innerHeight", window.innerHeight);
+      console.log("scrollY", window.scrollY);
+      console.log("offsetHeight", document.body.offsetHeight);
+    }
+  };
+}
+
+loadContentOnScroll();
