@@ -1,0 +1,128 @@
+/* russo-one-regular - latin */
+@font-face {
+  font-family: "Russo One";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/russo-one-v14-latin/russo-one-v14-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("../fonts/russo-one-v14-latin/russo-one-v14-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */
+      url("../fonts/russo-one-v14-latin/russo-one-v14-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/russo-one-v14-latin/russo-one-v14-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */
+      url("../fonts/russo-one-v14-latin/russo-one-v14-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/russo-one-v14-latin/russo-one-v14-latin-regular.svg#RussoOne")
+      format("svg"); /* Legacy iOS */
+}
+
+/* press-start-2p-regular - latin */
+@font-face {
+  font-family: "Press Start 2P";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/press-start-2p-v14-latin/press-start-2p-v14-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("../fonts/press-start-2p-v14-latin/press-start-2p-v14-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */
+      url("../fonts/press-start-2p-v14-latin/press-start-2p-v14-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/press-start-2p-v14-latin/press-start-2p-v14-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */
+      url("../fonts/press-start-2p-v14-latin/press-start-2p-v14-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/press-start-2p-v14-latin/press-start-2p-v14-latin-regular.svg#PressStart2P")
+      format("svg"); /* Legacy iOS */
+}
+
+/* ubuntu-300 - latin */
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-300.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-300.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-300.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-300.woff") format("woff"),
+    /* Modern Browsers */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-300.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-300.svg#Ubuntu")
+      format("svg"); /* Legacy iOS */
+}
+/* ubuntu-regular - latin */
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-regular.svg#Ubuntu")
+      format("svg"); /* Legacy iOS */
+}
+/* ubuntu-500 - latin */
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-500.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-500.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-500.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-500.woff") format("woff"),
+    /* Modern Browsers */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-500.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-500.svg#Ubuntu")
+      format("svg"); /* Legacy iOS */
+}
+/* ubuntu-700 - latin */
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-700.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-700.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-700.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-700.woff") format("woff"),
+    /* Modern Browsers */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-700.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/ubuntu-v20-latin/ubuntu-v20-latin-700.svg#Ubuntu")
+      format("svg"); /* Legacy iOS */
+}
