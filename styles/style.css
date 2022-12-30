@@ -4,6 +4,7 @@
   --shadow-color: hsla(0, 0%, 90%, 0.8);
   --poke-card-opacity: 1;
   --poke-card-gradient-angle: 180deg;
+  --poke-card-border: 2px solid;
   --type-shadow-effect: 10px -2px;
   --type-background-position: -2rem -8rem;
   --type-background-size: 30rem 30rem;
@@ -132,17 +133,11 @@ main {
   flex-direction: column;
   gap: 1rem;
   position: relative;
-  overflow: hidden;
-  /* box-shadow: 0 0 5px var(--shadow-color); */
   transition: box-shadow 200ms ease-in-out;
 }
 
-/* .poke-card:hover {
-  box-shadow: 0px 0px 15px 5px var(--shadow-color);
-} */
-
 .poke-card:hover .image > img {
-  scale: 1.2;
+  scale: 1.5;
 }
 
 .poke-card .name-id,

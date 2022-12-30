@@ -4,6 +4,7 @@
   background: url("../img/types/bug.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-bug);
 }
 
 .poke-card.bug:hover {
@@ -21,6 +22,7 @@
   background: url("../img/types/dragon.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-dragon);
 }
 
 .poke-card.dragon:hover {
@@ -42,6 +44,7 @@
   background: url("../img/types/fairy.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-fairy);
 }
 
 .poke-card.fairy:hover {
@@ -59,6 +62,7 @@
   background: url("../img/types/fire.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-fire);
 }
 
 .poke-card.fire:hover {
@@ -76,6 +80,7 @@
   background: url("../img/types/ghost.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-ghost);
 }
 
 .poke-card.ghost:hover {
@@ -93,6 +98,7 @@
   background: url("../img/types/ground.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-ground);
 }
 
 .poke-card.ground:hover {
@@ -114,6 +120,7 @@
   background: url("../img/types/normal.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-normal);
 }
 
 .poke-card.normal:hover {
@@ -131,6 +138,7 @@
   background: url("../img/types/psychic.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-psychic);
 }
 
 .poke-card.psychic:hover {
@@ -148,6 +156,7 @@
   background: url("../img/types/steel.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-steel);
 }
 
 .poke-card.steel:hover {
@@ -165,6 +174,7 @@
   background: url("../img/types/dark.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-dark);
 }
 
 .poke-card.dark:hover {
@@ -182,6 +192,7 @@
   background: url("../img/types/electric.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-electric);
 }
 
 .poke-card.electric:hover {
@@ -199,6 +210,7 @@
   background: url("../img/types/fighting.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-fighting);
 }
 
 .poke-card.fighting:hover {
@@ -216,6 +228,7 @@
   background: url("../img/types/flying.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-flying);
 }
 
 .poke-card.flying:hover {
@@ -237,6 +250,7 @@
   background: url("../img/types/grass.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-grass);
 }
 
 .poke-card.grass:hover {
@@ -254,6 +268,7 @@
   background: url("../img/types/ice.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-ice);
 }
 
 .poke-card.ice:hover {
@@ -271,6 +286,7 @@
   background: url("../img/types/poison.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-poison);
 }
 
 .poke-card.poison:hover {
@@ -288,6 +304,7 @@
   background: url("../img/types/rock.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-rock);
 }
 
 .poke-card.rock:hover {
@@ -305,6 +322,7 @@
   background: url("../img/types/water.png") no-repeat;
   background-position: var(--type-background-position);
   background-size: var(--type-background-size);
+  border: var(--poke-card-border) var(--type-color-water);
 }
 
 .poke-card.water:hover {
