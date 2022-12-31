@@ -14,7 +14,7 @@
       type="image/x-icon"
     />
   </head>
-  <body class="overflow-hidden">
+  <body class="">
     <header>
       <div class="logo">
         <img
@@ -61,7 +61,114 @@
             </div>
           </div>
         </div>
-        <div class="poke-card-detail-infos"></div>
+        <div class="poke-card-detail-infos">
+          <nav>
+            <span class="active" id="about">About</span>
+            <span id="base-stats">Base Stats</span>
+            <span id="evolution">Evolution</span>
+            <span id="moves">Moves</span>
+          </nav>
+          <div class="poke-card-detail-infos-about display-none">
+            <div class="height">
+              <div class="name">height</div>
+              <div class="content">33</div>
+            </div>
+            <div class="weight">
+              <div class="name">weight</div>
+              <div class="content">56</div>
+            </div>
+            <div class="abilities">
+              <div class="name">abilities</div>
+              <div class="content">overgrow, chlorophyll</div>
+            </div>
+          </div>
+          <div class="poke-card-detail-infos-basestats display-none">
+            <div class="hp">
+              <div class="name">HP</div>
+              <div class="value">33</div>
+              <div class="range">
+                <div class="range-value red"></div>
+                <div class="range-fill"></div>
+              </div>
+            </div>
+            <div class="attack">
+              <div class="name">Attack</div>
+              <div class="value">33</div>
+              <div class="range">
+                <div class="range-value red"></div>
+                <div class="range-fill"></div>
+              </div>
+            </div>
+            <div class="defense">
+              <div class="name">Defense</div>
+              <div class="value">66</div>
+              <div class="range">
+                <div class="range-value green"></div>
+                <div class="range-fill"></div>
+              </div>
+            </div>
+            <div class="special-attack">
+              <div class="name">Sp. Atk</div>
+              <div class="value">33</div>
+              <div class="range">
+                <div class="range-value red"></div>
+                <div class="range-fill"></div>
+              </div>
+            </div>
+            <div class="special-defense">
+              <div class="name">Sp. Def</div>
+              <div class="value">33</div>
+              <div class="range">
+                <div class="range-value red"></div>
+                <div class="range-fill"></div>
+              </div>
+            </div>
+            <div class="speed">
+              <div class="name">Speed</div>
+              <div class="value">33</div>
+              <div class="range">
+                <div class="range-value red"></div>
+                <div class="range-fill"></div>
+              </div>
+            </div>
+            <div class="total">
+              <div class="name">Total</div>
+              <div class="value">33</div>
+              <div class="range">
+                <div class="range-value red"></div>
+                <div class="range-fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="poke-card-detail-infos-evolution display-none">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+              />
+              <figcaption>Bisasam</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg"
+              />
+              <figcaption>Bisaflor</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg"
+              />
+              <figcaption>Bisaknosp</figcaption>
+            </figure>
+          </div>
+          <div class="poke-card-detail-infos-moves">
+            <div class="move">razor-wind</div>
+            <div class="move">swords-dance</div>
+            <div class="move">cut</div>
+            <div class="move">bind</div>
+            <div class="move">vine-whip</div>
+            <div class="move">headbutt</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="loading-animation"></div>
