@@ -14,7 +14,7 @@
       type="image/x-icon"
     />
   </head>
-  <body>
+  <body class="overflow-hidden">
     <header>
       <div class="logo">
         <img
@@ -28,6 +28,42 @@
         <input type="text" placeholder="find pokémon by name..." />
       </div>
     </header>
+    <div class="poke-detail-card-overlay">
+      <div class="poke-card-detail">
+        <div class="poke-card-detail-name-image">
+          <div
+            class="poke-card-detail-close-button"
+            onclick="closePokeDetailCard()"
+          >
+            <img src="./img/x-lg.svg" />
+          </div>
+          <div class="poke-card-detail-name-types-id">
+            <div class="poke-card-detail-name-types">
+              <div class="poke-card-detail-name">Bisasam</div>
+              <div class="poke-card-detail-types">
+                <div class="poke-card-detail-type grass-label">Pflanze</div>
+                <div class="poke-card-detail-type poison-label">Gift</div>
+              </div>
+            </div>
+            <div class="poke-card-detail-id">#001</div>
+          </div>
+          <div class="poke-card-detail-image-nav">
+            <div class="poke-card-detail-nav left" id="nav-left">
+              <img src="./img/caret-left.svg" />
+            </div>
+            <div class="poke-card-detail-image">
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+              />
+            </div>
+            <div class="poke-card-detail-nav right" id="nav-right">
+              <img src="./img/caret-right.svg" />
+            </div>
+          </div>
+        </div>
+        <div class="poke-card-detail-infos"></div>
+      </div>
+    </div>
     <div class="loading-animation"></div>
     <main>
       <div class="poke-card-container"></div>
