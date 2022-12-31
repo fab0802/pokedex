@@ -81,6 +81,7 @@ header {
 
 .logo {
   display: flex;
+  transform: rotate(135deg);
 }
 
 .logo img {
@@ -385,13 +386,13 @@ main {
 .poke-card-detail-infos-about > div,
 .poke-card-detail-infos-basestats > div {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
 }
 
 .poke-card-detail-infos-about > div .name,
 .poke-card-detail-infos-basestats > div .name {
-  width: 6rem;
+  min-width: 6rem;
   color: hsl(0, 0%, 70%);
 }
 
