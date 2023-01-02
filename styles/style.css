@@ -450,8 +450,9 @@ main {
 .poke-detail-card-infos-evolution {
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 2rem;
 }
 
 .poke-detail-card-infos-evolution figure {

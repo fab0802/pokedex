@@ -17,7 +17,7 @@ const pokeDetailCardOverlay = document.querySelector(
 let startPokemon = 1;
 let endPokemon = 20;
 const loadMorePokemonsCount = endPokemon;
-const lastPokemonIndex = 905;
+const lastPokemonIndex = 151;
 let loadedAllPokemons = false;
 
 let pokemonsAreLoading = false;
@@ -36,8 +36,12 @@ async function renderPokemons() {
 async function getPokemons() {
   for (let id = startPokemon; id <= endPokemon; id++) {
     if (loadedAllPokemons) return;
-    const pokemon = await loadPokemon(id);
+    let pokemon = await loadPokemon(id);
     const species = await loadSpecies(id);
+    const evolutionChain = await getEvolutionChainPokemons(
+      species.evolution_chain.url
+    );
+    pokemon.evolutionChain = evolutionChain;
     allPokemons.push(pokemon);
     pokeCardContainer.innerHTML += await createPokeCardHtml(id);
     if (id === lastPokemonIndex) {
@@ -59,6 +63,12 @@ async function loadSpecies(id) {
   return speciesJson;
 }
 
+async function loadEvolutionChain(evolutionChainApiUrl) {
+  const response = await fetch(`${evolutionChainApiUrl}`).catch(errorFunction);
+  const evolutionChainJson = await response.json();
+  return evolutionChainJson;
+}
+
 async function loadGermanTypeName(id) {
   const response = await fetch(`${API_URL_TYPES}${id}`).catch(errorFunction);
   const typesJson = await response.json();
@@ -67,6 +77,23 @@ async function loadGermanTypeName(id) {
 
 function errorFunction() {
   console.log("Fehler aufgetreten");
+}
+
+async function getEvolutionChainPokemons(evolutionChainUrl) {
+  const evolutionChainResponse = await fetch(evolutionChainUrl);
+  const evolutionChain = await evolutionChainResponse.json();
+  const pokemonNamesAndIds = [];
+  let currentPokemon = evolutionChain.chain;
+  while (currentPokemon) {
+    const pokemonResponse = await fetch(currentPokemon.species.url);
+    const pokemon = await pokemonResponse.json();
+    pokemonNamesAndIds.push({
+      name: pokemon.name,
+      id: pokemon.id,
+    });
+    currentPokemon = currentPokemon.evolves_to[0];
+  }
+  return pokemonNamesAndIds;
 }
 
 async function openPokeDetailCard(id) {

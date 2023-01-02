@@ -20,13 +20,7 @@ async function createPokeCardHtml(id) {
                   ${await createTypesHtml(id)}
               </div>
               <div class="image">
-                  <img
-                  src="${
-                    allPokemons[id - 1].sprites.other["official-artwork"]
-                      .front_default
-                  }"
-                  alt="Pokemon image"
-                  />
+                  <img src="${allPokemons[id - 1].sprites.other["official-artwork"].front_default}" alt="Pokemon image" />
               </div>
               </div>
           </div>
@@ -92,7 +86,6 @@ async function createPokeDetailCardHeaderNameIdTypes(id) {
   `;
 }
 
-// prettier-ignore
 async function createPokeDetailCardHeaderImageNav(id) {
   return `
       <div class="poke-detail-card-image-nav">
@@ -205,26 +198,21 @@ async function getTotalOfBaseStatHtml(total) {
 }
 
 async function createPokeDetailCardEvolution(id) {
-  return `
-        <figure>
-            <img
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
-            />
-            <figcaption>Bisasam</figcaption>
-        </figure>
-        <figure>
-            <img
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg"
-            />
-            <figcaption>Bisaflor</figcaption>
-        </figure>
-        <figure>
-            <img
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg"
-            />
-            <figcaption>Bisaknosp</figcaption>
-        </figure>
-    `;
+  const evolutionChain = allPokemons[id - 1].evolutionChain;
+  let pokeDetailCardEvolutionHtml = "";
+  for (let evolution of evolutionChain) {
+    const pokemonName = evolution.name;
+    const pokemonId = evolution.id;
+    if(!allPokemons[pokemonId - 1]) continue;
+    const pokemonImage = allPokemons[pokemonId - 1].sprites.other['official-artwork'].front_default;
+    pokeDetailCardEvolutionHtml += `
+      <figure onclick="openPokeDetailCard(${pokemonId})">
+        <img src="${pokemonImage}" />
+        <figcaption>${pokemonName}</figcaption>
+      </figure> 
+    `
+  }
+  return pokeDetailCardEvolutionHtml;
 }
 
 async function createPokeDetailCardMoves(id) {
