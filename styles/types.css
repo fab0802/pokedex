@@ -18,6 +18,12 @@
   background: var(--type-color-bug);
 }
 
+.bug-bg-poke-detail-card {
+  background: var(--type-color-bug) url("../img/types/bug.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
+}
+
 .dragon {
   background: url("../img/types/dragon.png") no-repeat;
   background-position: var(--type-background-position);
@@ -40,6 +46,12 @@
   );
 }
 
+.dragon-bg-poke-detail-card {
+  background: var(--type-color-dragon) url("../img/types/dragon.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
+}
+
 .fairy {
   background: url("../img/types/fairy.png") no-repeat;
   background-position: var(--type-background-position);
@@ -56,6 +68,12 @@
 
 .fairy-label {
   background: var(--type-color-fairy);
+}
+
+.fairy-bg-poke-detail-card {
+  background: var(--type-color-fairy) url("../img/types/fairy.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
 }
 
 .fire {
@@ -76,6 +94,12 @@
   background: var(--type-color-fire);
 }
 
+.fire-bg-poke-detail-card {
+  background: var(--type-color-fire) url("../img/types/fire.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
+}
+
 .ghost {
   background: url("../img/types/ghost.png") no-repeat;
   background-position: var(--type-background-position);
@@ -92,6 +116,12 @@
 
 .ghost-label {
   background: var(--type-color-ghost);
+}
+
+.ghost-bg-poke-detail-card {
+  background: var(--type-color-ghost) url("../img/types/ghost.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
 }
 
 .ground {
@@ -116,6 +146,12 @@
   );
 }
 
+.ground-bg-poke-detail-card {
+  background: var(--type-color-ground) url("../img/types/ground.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
+}
+
 .normal {
   background: url("../img/types/normal.png") no-repeat;
   background-position: var(--type-background-position);
@@ -132,6 +168,12 @@
 
 .normal-label {
   background: var(--type-color-normal);
+}
+
+.normal-bg-poke-detail-card {
+  background: var(--type-color-normal) url("../img/types/normal.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
 }
 
 .psychic {
@@ -152,6 +194,13 @@
   background: var(--type-color-psychic);
 }
 
+.psychic-bg-poke-detail-card {
+  background: var(--type-color-psychic) url("../img/types/psychic.png")
+    no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
+}
+
 .steel {
   background: url("../img/types/steel.png") no-repeat;
   background-position: var(--type-background-position);
@@ -168,6 +217,12 @@
 
 .steel-label {
   background: var(--type-color-steel);
+}
+
+.steel-bg-poke-detail-card {
+  background: var(--type-color-steel) url("../img/types/steel.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
 }
 
 .dark {
@@ -188,6 +243,12 @@
   background: var(--type-color-dark);
 }
 
+.dark-bg-poke-detail-card {
+  background: var(--type-color-dark) url("../img/types/dark.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
+}
+
 .electric {
   background: url("../img/types/electric.png") no-repeat;
   background-position: var(--type-background-position);
@@ -206,6 +267,13 @@
   background: var(--type-color-electric);
 }
 
+.electric-bg-poke-detail-card {
+  background: var(--type-color-electric) url("../img/types/electric.png")
+    no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
+}
+
 .fighting {
   background: url("../img/types/fighting.png") no-repeat;
   background-position: var(--type-background-position);
@@ -222,6 +290,13 @@
 
 .fighting-label {
   background: var(--type-color-fighting);
+}
+
+.fighting-bg-poke-detail-card {
+  background: var(--type-color-fighting) url("../img/types/fighting.png")
+    no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
 }
 
 .flying {
@@ -246,6 +321,12 @@
   );
 }
 
+.flying-bg-poke-detail-card {
+  background: var(--type-color-flying) url("../img/types/flying.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
+}
+
 .grass {
   background: url("../img/types/grass.png") no-repeat;
   background-position: var(--type-background-position);
@@ -262,6 +343,12 @@
 
 .grass-label {
   background: var(--type-color-grass);
+}
+
+.grass-bg-poke-detail-card {
+  background: var(--type-color-grass) url("../img/types/grass.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
 }
 
 .ice {
@@ -282,6 +369,12 @@
   background: var(--type-color-ice);
 }
 
+.ice-bg-poke-detail-card {
+  background: var(--type-color-ice) url("../img/types/ice.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
+}
+
 .poison {
   background: url("../img/types/poison.png") no-repeat;
   background-position: var(--type-background-position);
@@ -298,6 +391,12 @@
 
 .poison-label {
   background: var(--type-color-poison);
+}
+
+.poison-bg-poke-detail-card {
+  background: var(--type-color-poison) url("../img/types/poison.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
 }
 
 .rock {
@@ -318,6 +417,12 @@
   background: var(--type-color-rock);
 }
 
+.rock-bg-poke-detail-card {
+  background: var(--type-color-rock) url("../img/types/rock.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
+}
+
 .water {
   background: url("../img/types/water.png") no-repeat;
   background-position: var(--type-background-position);
@@ -334,4 +439,10 @@
 
 .type.water-label {
   background: var(--type-color-water);
+}
+
+.water-bg-poke-detail-card {
+  background: var(--type-color-water) url("../img/types/water.png") no-repeat;
+  background-position: 50% -240%;
+  background-size: 25rem 25rem;
 }
