@@ -89,10 +89,11 @@ header {
   height: 40px;
 }
 
-.title {
+.title a {
   color: var(--secondary-color);
   font-family: "Russo One", sans-serif;
   font-size: 3rem;
+  text-decoration: none;
 }
 
 .search input {
@@ -109,18 +110,33 @@ main {
 }
 
 .loading-animation {
-  width: 100px;
-  height: 100px;
-  background: hsla(0, 0%, 10%, 0.5);
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 10%, 0.7);
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
+  /* display: none; */
+}
+
+.loading-animation-img {
+  width: 100px;
+  height: 100px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .poke-card-container {
@@ -474,6 +490,7 @@ main {
 
 .poke-detail-card-infos-evolution figcaption {
   text-align: center;
+  text-transform: capitalize;
 }
 
 .poke-detail-card-infos-moves {

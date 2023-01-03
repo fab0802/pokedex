@@ -26,11 +26,21 @@ let selectedPokeDetailCardMenu = "about";
 
 async function renderPokemons() {
   if (pokemonsAreLoading) return;
-  pokemonsAreLoading = true;
+  showLoadingAnimation();
   await getPokemons();
   startPokemon += loadMorePokemonsCount;
   endPokemon += loadMorePokemonsCount;
+  hideLoadingAnimation();
+}
+
+function showLoadingAnimation() {
+  pokemonsAreLoading = true;
+  document.querySelector(".loading-animation").classList.remove("display-none");
+}
+
+function hideLoadingAnimation() {
   pokemonsAreLoading = false;
+  document.querySelector(".loading-animation").classList.add("display-none");
 }
 
 async function getPokemons() {
@@ -132,11 +142,13 @@ async function showHideMenuContent(menu) {
 }
 
 async function previousPokemon(id) {
+  if (pokemonsAreLoading) return;
   if (id === 0) id = endPokemon - loadMorePokemonsCount;
   await openPokeDetailCard(id);
 }
 
 async function nextPokemon(id) {
+  if (pokemonsAreLoading) return;
   if (id > lastPokemonIndex) {
     id = 1;
   } else if (id > allPokemons.length) {
@@ -144,8 +156,6 @@ async function nextPokemon(id) {
   }
   await openPokeDetailCard(id);
 }
-
-renderPokemons();
 
 pokeDetailCardOverlay.addEventListener("click", function (e) {
   if (e.target !== this) {
@@ -169,3 +179,5 @@ function getPokemonId() {
     document.querySelector("#poke-detail-card").classList[1].split("-")[2]
   );
 }
+
+renderPokemons();

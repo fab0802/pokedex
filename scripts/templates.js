@@ -43,9 +43,7 @@ async function createTypesHtml(id) {
 async function createPokeDetailCardHtml(id) {
   return `
     <div class="poke-detail-card pokemon-id-${id}" id="poke-detail-card">
-        <div class="poke-detail-card-name-image ${
-          allPokemons[id - 1].types[0].type.name
-        }-bg-poke-detail-card">
+        <div class="poke-detail-card-name-image ${allPokemons[id - 1].types[0].type.name}-bg-poke-detail-card">
             ${await createPokeDetailCardHeader(id)}
         </div>
         <div class="poke-detail-card-infos">

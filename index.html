@@ -23,12 +23,18 @@
           onclick="renderPokemons()"
         />
       </div>
-      <div class="title">Pokédex</div>
+      <div class="title"><a href="index.html">Pokédex</a></div>
       <div class="search">
         <input type="text" placeholder="find pokémon by name..." />
       </div>
     </header>
-    <div class="loading-animation"></div>
+    <div class="loading-animation display-none">
+      <img
+        class="loading-animation-img"
+        src="./img/pokeball.png"
+        alt="pokeball"
+      />
+    </div>
     <main>
       <div class="poke-card-container"></div>
     </main>
