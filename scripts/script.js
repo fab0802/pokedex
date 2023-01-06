@@ -64,7 +64,7 @@ function hideLoadingAnimation() {
 }
 
 async function getEvolutionChain(id) {
-  const evolutionChain = getEvolutionChainJson(id);
+  const evolutionChain = await getEvolutionChainJson(id);
   const pokemonNamesAndIds = [];
   let currentPokemon = evolutionChain.chain;
   while (currentPokemon) {
@@ -187,7 +187,7 @@ window.addEventListener("scroll", scrollEventlistener);
 function scrollEventlistener() {
   const currentScrollPosition = window.scrollY + document.body.offsetHeight;
   const totalPageHeight = document.body.scrollHeight;
-  if (totalPageHeight - currentScrollPosition <= 50) loadMorePokemons();
+  if (totalPageHeight - currentScrollPosition <= 100) loadMorePokemons();
 }
 
 init();
