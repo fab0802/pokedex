@@ -3,7 +3,8 @@
 search.addEventListener("input", filterPokemons);
 
 async function filterPokemons() {
-  const searchInput = search.value;
+  const searchInput = search.value.toLowerCase();
+  console.log(searchInput);
   filteredPokemons = [];
   pokemonsAreFiltered = true;
   if (!searchInput) {
