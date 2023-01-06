@@ -1,109 +1,128 @@
 "use strict";
 
 const API_URL_POKEMONS = "https://pokeapi.co/api/v2/pokemon/";
-const API_URL_SPECIES = "https://pokeapi.co/api/v2/pokemon-species/"; // to get german names and evolution chains
-const API_URL_TYPES = "https://pokeapi.co/api/v2/type/"; //to get german type names
+const API_URL_SPECIES = "https://pokeapi.co/api/v2/pokemon-species/"; // to get evolution chains
 
 const allPokemons = [];
+let filteredPokemons = [];
+
+const lastPokemon = 151;
+const loadMorePokemonsCount = 24;
+
+let selectedPokeDetailCardMenu = "about";
+
+let pokemonsAreLoading = false;
+let pokemonsAreFiltered = false;
 
 const body = document.querySelector("body");
+const search = document.querySelector("#search");
 const pokeCardContainer = document.querySelector(".poke-card-container");
 const pokeDetailCardOverlay = document.querySelector(
   ".poke-detail-card-overlay"
 );
+const loadMOreButton = document.querySelector(".load-more-button");
 
-// 649 pokemons with images in the set dream-world
-// 905 (all) pokemons with images in the set official-artwork
-let startPokemon = 1;
-let endPokemon = 20;
-const loadMorePokemonsCount = endPokemon;
-const lastPokemonIndex = 151;
-let loadedAllPokemons = false;
+let firstTouch;
+let secondTouch;
 
-let pokemonsAreLoading = false;
+async function init() {
+  await loadPokemonsFromApi(1);
+  checkIfLoadMoreButtonShouldBeDisplayed();
+}
 
-let selectedPokeDetailCardMenu = "about";
+init();
 
-async function renderPokemons() {
+// prettier-ignore
+async function loadPokemonsFromApi(startId) {
   if (pokemonsAreLoading) return;
   showLoadingAnimation();
-  await getPokemons();
-  startPokemon += loadMorePokemonsCount;
-  endPokemon += loadMorePokemonsCount;
+  for (let id = startId; id <= startId + loadMorePokemonsCount - 1; id++) {
+    if (id > lastPokemon) {
+        renderPokemons(startId);
+        hideLoadingAnimation();
+        return;
+    }
+    const apiPokemonJson = await getDataFromApis(id)
+    allPokemons.push(apiPokemonJson);
+  }
+  renderPokemons(startId);
   hideLoadingAnimation();
+}
+
+function checkIfLoadMoreButtonShouldBeDisplayed() {
+  if (
+    !(document.body.scrollHeight > document.body.clientHeight) &&
+    loadMOreButton.classList.contains("display-none")
+  ) {
+    loadMOreButton.classList.remove("display-none");
+  } else if (!loadMOreButton.classList.contains("display-none")) {
+    loadMOreButton.classList.add("display-none");
+  }
+}
+
+async function getDataFromApis(id) {
+  const response = await fetch(`${API_URL_POKEMONS}${id}`).catch(errorFunction);
+  const apiPokemonJson = await response.json();
+  apiPokemonJson.evolutionChain = await getEvolutionChain(apiPokemonJson.id);
+  return apiPokemonJson;
 }
 
 function showLoadingAnimation() {
   pokemonsAreLoading = true;
   document.querySelector(".loading-animation").classList.remove("display-none");
+  document.querySelector("body").classList.add("overflow-hidden");
 }
 
 function hideLoadingAnimation() {
   pokemonsAreLoading = false;
   document.querySelector(".loading-animation").classList.add("display-none");
+  document.querySelector("body").classList.remove("overflow-hidden");
 }
 
-async function getPokemons() {
-  for (let id = startPokemon; id <= endPokemon; id++) {
-    if (loadedAllPokemons) return;
-    let pokemon = await loadPokemon(id);
-    const species = await loadSpecies(id);
-    const evolutionChain = await getEvolutionChainPokemons(
-      species.evolution_chain.url
-    );
-    pokemon.evolutionChain = evolutionChain;
-    allPokemons.push(pokemon);
-    pokeCardContainer.innerHTML += await createPokeCardHtml(id);
-    if (id === lastPokemonIndex) {
-      loadedAllPokemons = true;
-      endPokemon = lastPokemonIndex;
-    }
+// prettier-ignore
+async function getEvolutionChain(id) {
+  const evolutionChainUrl = await loadSpecies(id);
+  const evolutionChainResponse = await fetch(evolutionChainUrl);
+  const evolutionChain = await evolutionChainResponse.json();
+  const pokemonNamesAndIds = [];
+  let currentPokemon = evolutionChain.chain;
+  while (currentPokemon) {
+    const pokemonResponse = await fetch(currentPokemon.species.url).catch(errorFunction);
+    const pokemon = await pokemonResponse.json();
+    pokemonNamesAndIds.push({name: pokemon.name, id: pokemon.id,});
+    currentPokemon = currentPokemon.evolves_to[0];
   }
-}
-
-async function loadPokemon(id) {
-  const response = await fetch(`${API_URL_POKEMONS}${id}`).catch(errorFunction);
-  const pokemonJson = await response.json();
-  return pokemonJson;
+  return pokemonNamesAndIds;
 }
 
 async function loadSpecies(id) {
   const response = await fetch(`${API_URL_SPECIES}${id}`).catch(errorFunction);
   const speciesJson = await response.json();
-  return speciesJson;
-}
-
-async function loadEvolutionChain(evolutionChainApiUrl) {
-  const response = await fetch(`${evolutionChainApiUrl}`).catch(errorFunction);
-  const evolutionChainJson = await response.json();
-  return evolutionChainJson;
-}
-
-async function loadGermanTypeName(id) {
-  const response = await fetch(`${API_URL_TYPES}${id}`).catch(errorFunction);
-  const typesJson = await response.json();
-  return typesJson.names[4].name;
+  const evolutionChain = speciesJson.evolution_chain.url;
+  return evolutionChain;
 }
 
 function errorFunction() {
   console.log("Fehler aufgetreten");
 }
 
-async function getEvolutionChainPokemons(evolutionChainUrl) {
-  const evolutionChainResponse = await fetch(evolutionChainUrl);
-  const evolutionChain = await evolutionChainResponse.json();
-  const pokemonNamesAndIds = [];
-  let currentPokemon = evolutionChain.chain;
-  while (currentPokemon) {
-    const pokemonResponse = await fetch(currentPokemon.species.url);
-    const pokemon = await pokemonResponse.json();
-    pokemonNamesAndIds.push({
-      name: pokemon.name,
-      id: pokemon.id,
-    });
-    currentPokemon = currentPokemon.evolves_to[0];
+function renderPokemons(startId) {
+  for (let id = startId; id <= allPokemons.length; id++) {
+    pokeCardContainer.innerHTML += createPokeCardHtml(id);
   }
-  return pokemonNamesAndIds;
+}
+
+async function loadMorePokemons() {
+  if (pokemonsAreFiltered) return;
+  const startId = allPokemons.length + 1;
+  await loadPokemonsFromApi(startId);
+  checkIfLoadMoreButtonShouldBeDisplayed();
+}
+
+async function openPokeDetailCard(pokemonId) {
+  body.classList.add("overflow-hidden");
+  pokeDetailCardOverlay.classList.remove("display-none");
+  pokeDetailCardOverlay.innerHTML = await createPokeDetailCardHtml(pokemonId);
 }
 
 async function openPokeDetailCard(id) {
@@ -143,16 +162,17 @@ async function showHideMenuContent(menu) {
 
 async function previousPokemon(id) {
   if (pokemonsAreLoading) return;
-  if (id === 0) id = endPokemon - loadMorePokemonsCount;
+  if (id === 0) id = allPokemons.length;
   await openPokeDetailCard(id);
 }
 
 async function nextPokemon(id) {
   if (pokemonsAreLoading) return;
-  if (id > lastPokemonIndex) {
+  if (id > lastPokemon) {
     id = 1;
   } else if (id > allPokemons.length) {
-    await renderPokemons();
+    await loadMorePokemons();
+    renderPokemons(id);
   }
   await openPokeDetailCard(id);
 }
@@ -174,10 +194,13 @@ document.addEventListener("keydown", function (e) {
     nextPokemon(getPokemonId() + 1);
 });
 
+// prettier-ignore
 function getPokemonId() {
-  return Number(
-    document.querySelector("#poke-detail-card").classList[1].split("-")[2]
-  );
+  return Number(document.querySelector("#poke-detail-card").classList[1].split("-")[2]);
 }
 
-renderPokemons();
+window.addEventListener("scroll", function () {
+  const currentScrollPosition = window.scrollY + document.body.offsetHeight;
+  const totalPageHeight = document.body.scrollHeight;
+  if (totalPageHeight - currentScrollPosition <= 50) loadMorePokemons();
+});
