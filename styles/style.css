@@ -419,7 +419,7 @@ main {
 
 .poke-detail-card-infos-about > div .name,
 .poke-detail-card-infos-base-stats .name {
-  width: 6rem;
+  min-width: 6rem;
   color: hsl(0, 0%, 70%);
   text-overflow: ellipsis;
   white-space: nowrap;
