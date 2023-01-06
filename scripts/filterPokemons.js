@@ -9,7 +9,7 @@ async function filterPokemons() {
   if (!searchInput) {
     pokemonsAreFiltered = false;
     filteredPokemons = [];
-    renderPokemons(1);
+    renderAllPokemons(1);
     return;
   }
   for (let pokemon of allPokemons)

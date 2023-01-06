@@ -5,7 +5,7 @@ const API_URL_SPECIES = "https://pokeapi.co/api/v2/pokemon-species/"; // to get 
 const allPokemons = [];
 let filteredPokemons = [];
 const lastPokemon = 151;
-const loadMorePokemonsCount = 15;
+const loadMorePokemonsCount = 20;
 let selectedPokeDetailCardMenu = "about";
 let pokemonsAreLoading = false;
 let pokemonsAreFiltered = false;
@@ -25,14 +25,13 @@ async function loadPokemonsFromApi(startId) {
   showLoadingAnimation();
   for (let id = startId; id <= startId + loadMorePokemonsCount - 1; id++) {
     if (id > lastPokemon) {
-      renderPokemons(startId);
       hideLoadingAnimation();
       return;
     }
     const apiPokemonJson = await getDataFromApis(id);
     allPokemons.push(apiPokemonJson);
+    renderPokemons(id);
   }
-  renderPokemons(startId);
   hideLoadingAnimation();
 }
 
@@ -54,13 +53,13 @@ async function getDataFromApis(id) {
 function showLoadingAnimation() {
   pokemonsAreLoading = true;
   document.querySelector(".loading-animation").classList.remove("display-none");
-  document.querySelector("body").classList.add("overflow-hidden");
+  // document.querySelector("body").classList.add("overflow-hidden");
 }
 
 function hideLoadingAnimation() {
   pokemonsAreLoading = false;
   document.querySelector(".loading-animation").classList.add("display-none");
-  document.querySelector("body").classList.remove("overflow-hidden");
+  // document.querySelector("body").classList.remove("overflow-hidden");
 }
 
 async function getEvolutionChain(id) {
@@ -94,7 +93,12 @@ function errorFunction() {
   console.log("Fehler aufgetreten");
 }
 
-function renderPokemons(startId) {
+function renderPokemons(id) {
+  pokeCardContainer.innerHTML += createPokeCardHtml(id);
+}
+
+function renderAllPokemons(startId) {
+  pokeCardContainer.innerHTML = "";
   for (let id = startId; id <= allPokemons.length; id++) {
     pokeCardContainer.innerHTML += createPokeCardHtml(id);
   }
@@ -105,12 +109,6 @@ async function loadMorePokemons() {
   const startId = allPokemons.length + 1;
   await loadPokemonsFromApi(startId);
   checkIfLoadMoreButtonShouldBeDisplayed();
-}
-
-async function openPokeDetailCard(pokemonId) {
-  body.classList.add("overflow-hidden");
-  pokeDetailCardOverlay.classList.remove("display-none");
-  pokeDetailCardOverlay.innerHTML = await createPokeDetailCardHtml(pokemonId);
 }
 
 async function openPokeDetailCard(id) {
@@ -158,7 +156,7 @@ async function nextPokemon(id) {
     id = 1;
   } else if (id > allPokemons.length) {
     await loadMorePokemons();
-    renderPokemons(id);
+    renderAllPokemons(id);
   }
   await openPokeDetailCard(id);
 }
@@ -187,7 +185,7 @@ window.addEventListener("scroll", scrollEventlistener);
 function scrollEventlistener() {
   const currentScrollPosition = window.scrollY + document.body.offsetHeight;
   const totalPageHeight = document.body.scrollHeight;
-  if (totalPageHeight - currentScrollPosition <= 100) loadMorePokemons();
+  if (totalPageHeight - currentScrollPosition <= 150) loadMorePokemons();
 }
 
 init();
