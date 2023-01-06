@@ -112,7 +112,6 @@ main {
 .loading-animation {
   width: 100%;
   height: 100%;
-  background: hsla(0, 0%, 10%, 0.7);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -121,7 +120,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: none; */
 }
 
 .loading-animation-img {
@@ -223,7 +221,7 @@ main {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -466,6 +464,7 @@ main {
 .poke-detail-card-infos-evolution {
   height: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 2rem;
@@ -506,6 +505,38 @@ main {
   border-radius: 0.75rem;
 }
 
+.load-more-button {
+  height: 4rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.load-more-button button {
+  color: var(--secondary-color);
+  background: var(--primary-color);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--secondary-color);
+  font-size: 1.5rem;
+}
+
+.load-more-button button:hover {
+  color: var(--primary-color);
+  background: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.load-more-button button:active {
+  transform: translate(1px, 1px);
+}
+
 /* Mobile views */
 
 @media (max-width: 60rem) {
@@ -526,7 +557,7 @@ main {
     height: fit-content;
     padding: 1rem 0 1.5rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     background: var(--primary-color);
     z-index: 2;
@@ -538,6 +569,26 @@ main {
     font-size: 1.25rem;
   }
 
+  .poke-detail-card {
+    width: 100vw;
+    height: 100dvh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .poke-detail-card-close-button {
+    background: hsla(0, 0%, 100%, 0.5);
+    border-radius: 0 0 0 1.5rem;
+  }
+
+  .poke-detail-card-image {
+    top: 1rem;
+  }
+
+  .poke-detail-card-infos {
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+
   .poke-card:last-child {
     margin-bottom: 6rem;
   }
@@ -546,5 +597,17 @@ main {
 @media (pointer: coarse) {
   body {
     background: var(--primary-color);
+  }
+}
+
+/* big screen load more pokemons button */
+
+@media (min-width: 100rem) {
+  .poke-card:last-child {
+    margin-bottom: 5rem;
+  }
+
+  .load-more-button {
+    display: flex;
   }
 }
