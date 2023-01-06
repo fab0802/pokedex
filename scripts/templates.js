@@ -1,38 +1,36 @@
 "use strict";
 
-async function createPokeCardHtml(id) {
+function createPokeCardHtml(id) {
+  const pokemon = allPokemons[id - 1];
   return `
           <div class="poke-card ${
-            allPokemons[id - 1].types[0].type.name
+            pokemon.types[0].type.name
           }" id="poke-card-${id}" onclick="openPokeDetailCard(${id})">
               <div class="name-id">
               <div class="name">${
-                allPokemons[id - 1].name
+                pokemon.name
                 // germanName
               }</div>
-              <div class="id">#${String(allPokemons[id - 1].id).padStart(
+              <div class="id">#${String(id).padStart(
                 3,
                 "0"
               )}</div>
               </div>
               <div class="types-image">
               <div class="types">
-                  ${await createTypesHtml(id)}
+                  ${createTypesHtml(pokemon.types)}
               </div>
               <div class="image">
-                  <img src="${allPokemons[id - 1].sprites.other["official-artwork"].front_default}" alt="Pokemon image" />
+                  <img src="${pokemon.sprites.other.dream_world.front_default}" alt="Pokemon image" />
               </div>
               </div>
           </div>
       `;
 }
 
-async function createTypesHtml(id) {
-  const types = allPokemons[id - 1].types;
+function createTypesHtml(types) {
   let typesHtml = "";
   for (let type of types) {
-    // const typeId = String(type.type.url).split("/")[6];
-    // const germanTypeName = await loadGermanTypeName(typeId);
     typesHtml += `
           <div class="type ${type.type.name}-label">${type.type.name}</div>
       `;
@@ -41,9 +39,10 @@ async function createTypesHtml(id) {
 }
 
 async function createPokeDetailCardHtml(id) {
+  const pokemon = allPokemons[id - 1];
   return `
     <div class="poke-detail-card pokemon-id-${id}" id="poke-detail-card">
-        <div class="poke-detail-card-name-image ${allPokemons[id - 1].types[0].type.name}-bg-poke-detail-card">
+        <div class="poke-detail-card-name-image ${pokemon.types[0].type.name}-bg-poke-detail-card">
             ${await createPokeDetailCardHeader(id)}
         </div>
         <div class="poke-detail-card-infos">
@@ -67,24 +66,26 @@ async function createPokeDetailCardHeader(id) {
 }
 
 async function createPokeDetailCardHeaderNameIdTypes(id) {
+  const pokemon = allPokemons[id - 1];
   return `
         <div class="poke-detail-card-name-types-id">
             <div class="poke-detail-card-name-types">
                 <div class="poke-detail-card-name">${
-                  allPokemons[id - 1].name
+                  pokemon.name
                 }</div>
                 <div class="poke-detail-card-types">
-                    ${await createTypesHtml(id)}
+                    ${createTypesHtml(pokemon.types)}
                 </div>
             </div>
             <div class="poke-detail-card-id">#${String(
-              allPokemons[id - 1].id
+              id
             ).padStart(3, "0")}</div>
         </div>
   `;
 }
 
 async function createPokeDetailCardHeaderImageNav(id) {
+  const pokemon = allPokemons[id - 1];
   return `
       <div class="poke-detail-card-image-nav">
         <div class="poke-detail-card-nav left" id="nav-left" onclick="previousPokemon(${
@@ -93,7 +94,7 @@ async function createPokeDetailCardHeaderImageNav(id) {
             <img src="./img/caret-left.svg" />
         </div>
         <div class="poke-detail-card-image">
-            <img src="${allPokemons[id - 1].sprites.other['official-artwork'].front_default}" />
+            <img src="${pokemon.sprites.other.dream_world.front_default}" />
         </div>
         <div class="poke-detail-card-nav right" id="nav-right" onclick="nextPokemon(${id + 1})">
             <img src="./img/caret-right.svg" />
