@@ -10,16 +10,16 @@ async function filterPokemons() {
     pokemonsAreFiltered = false;
     filteredPokemons = [];
     renderPokemons(1);
+    return;
   }
-  for (let pokemon of allPokemons) {
+  for (let pokemon of allPokemons)
     if (pokemon.name.includes(searchInput)) filteredPokemons.push(pokemon);
-  }
+
   renderFilteredPokemons();
 }
 
 function renderFilteredPokemons() {
   pokeCardContainer.innerHTML = "";
-  for (let pokemon of filteredPokemons) {
+  for (let pokemon of filteredPokemons)
     pokeCardContainer.innerHTML += createPokeCardHtml(pokemon.id);
-  }
 }

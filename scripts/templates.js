@@ -3,37 +3,27 @@
 function createPokeCardHtml(id) {
   const pokemon = allPokemons[id - 1];
   return `
-          <div class="poke-card ${
-            pokemon.types[0].type.name
-          }" id="poke-card-${id}" onclick="openPokeDetailCard(${id})">
-              <div class="name-id">
-              <div class="name">${
-                pokemon.name
-                // germanName
-              }</div>
-              <div class="id">#${String(id).padStart(
-                3,
-                "0"
-              )}</div>
-              </div>
-              <div class="types-image">
-              <div class="types">
-                  ${createTypesHtml(pokemon.types)}
-              </div>
-              <div class="image">
-                  <img src="${pokemon.sprites.other.dream_world.front_default}" alt="Pokemon image" />
-              </div>
-              </div>
+        <div class="poke-card ${pokemon.types[0].type.name}" id="poke-card-${id}" onclick="openPokeDetailCard(${id})">
+          <div class="name-id">
+            <div class="name">${pokemon.name}</div>
+            <div class="id">#${String(id).padStart(3, "0")}</div>
           </div>
+          <div class="types-image">
+            <div class="types">
+                ${createTypesHtml(pokemon.types)}
+            </div>
+            <div class="image">
+                <img src="${pokemon.sprites.other.dream_world.front_default}" alt="Pokemon image" />
+            </div>
+          </div>
+        </div>
       `;
 }
 
 function createTypesHtml(types) {
   let typesHtml = "";
   for (let type of types) {
-    typesHtml += `
-          <div class="type ${type.type.name}-label">${type.type.name}</div>
-      `;
+    typesHtml += `<div class="type ${type.type.name}-label">${type.type.name}</div>`;
   }
   return typesHtml;
 }
@@ -41,17 +31,17 @@ function createTypesHtml(types) {
 async function createPokeDetailCardHtml(id) {
   const pokemon = allPokemons[id - 1];
   return `
-    <div class="poke-detail-card pokemon-id-${id}" id="poke-detail-card">
-        <div class="poke-detail-card-name-image ${pokemon.types[0].type.name}-bg-poke-detail-card">
-            ${await createPokeDetailCardHeader(id)}
-        </div>
-        <div class="poke-detail-card-infos">
-            ${await createPokeDetailCardNav(id)}
-            <div id="poke-detail-card-infos">
-                ${await createPokeDetailCardContent(id)}
+        <div class="poke-detail-card pokemon-id-${id}" id="poke-detail-card">
+            <div class="poke-detail-card-name-image ${pokemon.types[0].type.name}-bg-poke-detail-card">
+                ${await createPokeDetailCardHeader(id)}
+            </div>
+            <div class="poke-detail-card-infos">
+                ${await createPokeDetailCardNav(id)}
+                <div id="poke-detail-card-infos">
+                    ${await createPokeDetailCardContent(id)}
+                </div>
             </div>
         </div>
-    </div>
     `;
 }
 
@@ -69,17 +59,17 @@ async function createPokeDetailCardHeaderNameIdTypes(id) {
   const pokemon = allPokemons[id - 1];
   return `
         <div class="poke-detail-card-name-types-id">
-            <div class="poke-detail-card-name-types">
-                <div class="poke-detail-card-name">${
-                  pokemon.name
-                }</div>
-                <div class="poke-detail-card-types">
-                    ${createTypesHtml(pokemon.types)}
-                </div>
+          <div class="poke-detail-card-name-types">
+            <div class="poke-detail-card-name">
+              ${pokemon.name}
             </div>
-            <div class="poke-detail-card-id">#${String(
-              id
-            ).padStart(3, "0")}</div>
+            <div class="poke-detail-card-types">
+                ${createTypesHtml(pokemon.types)}
+            </div>
+          </div>
+          <div class="poke-detail-card-id">#
+            ${String(id).padStart(3, "0")}
+          </div>
         </div>
   `;
 }
@@ -87,30 +77,30 @@ async function createPokeDetailCardHeaderNameIdTypes(id) {
 async function createPokeDetailCardHeaderImageNav(id) {
   const pokemon = allPokemons[id - 1];
   return `
-      <div class="poke-detail-card-image-nav">
-        <div class="poke-detail-card-nav left" id="nav-left" onclick="previousPokemon(${
-          id - 1
-        })">
-            <img src="./img/caret-left.svg" />
+        <div class="poke-detail-card-image-nav">
+          <div class="poke-detail-card-nav left" id="nav-left" onclick="previousPokemon(${
+            id - 1
+          })">
+              <img src="./img/caret-left.svg" />
+          </div>
+          <div class="poke-detail-card-image">
+              <img src="${pokemon.sprites.other.dream_world.front_default}" />
+          </div>
+          <div class="poke-detail-card-nav right" id="nav-right" onclick="nextPokemon(${id + 1})">
+              <img src="./img/caret-right.svg" />
+          </div>
         </div>
-        <div class="poke-detail-card-image">
-            <img src="${pokemon.sprites.other.dream_world.front_default}" />
-        </div>
-        <div class="poke-detail-card-nav right" id="nav-right" onclick="nextPokemon(${id + 1})">
-            <img src="./img/caret-right.svg" />
-        </div>
-      </div>
   `;
 }
 
 async function createPokeDetailCardNav(id) {
   return `
-    <nav>
-        <span class="poke-detail-card-menu active" id="about" onclick="selectPokeDetailCardMenu('about', ${id})">About</span>
-        <span class="poke-detail-card-menu" id="base-stats" onclick="selectPokeDetailCardMenu('base-stats', ${id})">Base Stats</span>
-        <span class="poke-detail-card-menu" id="evolution" onclick="selectPokeDetailCardMenu('evolution', ${id})">Evolution</span>
-        <span class="poke-detail-card-menu" id="moves" onclick="selectPokeDetailCardMenu('moves', ${id})">Moves</span>
-    </nav>
+        <nav>
+            <span class="poke-detail-card-menu active" id="about" onclick="selectPokeDetailCardMenu('about', ${id})">About</span>
+            <span class="poke-detail-card-menu" id="base-stats" onclick="selectPokeDetailCardMenu('base-stats', ${id})">Base Stats</span>
+            <span class="poke-detail-card-menu" id="evolution" onclick="selectPokeDetailCardMenu('evolution', ${id})">Evolution</span>
+            <span class="poke-detail-card-menu" id="moves" onclick="selectPokeDetailCardMenu('moves', ${id})">Moves</span>
+        </nav>
     `;
 }
 
@@ -139,18 +129,18 @@ async function createPokeDetailCardAbout(id) {
     .toString()
     .replaceAll(",", ", ");
   return `
-    <div class="height">
-        <div class="name">height</div>
-        <div class="content">${height} m</div>
-    </div>
-    <div class="weight">
-        <div class="name">weight</div>
-        <div class="content">${weight} kg</div>
-    </div>
-    <div class="abilities">
-        <div class="name">abilities</div>
-        <div class="content">${abilities}</div>
-    </div>
+        <div class="height">
+            <div class="name">height</div>
+            <div class="content">${height} m</div>
+        </div>
+        <div class="weight">
+            <div class="name">weight</div>
+            <div class="content">${weight} kg</div>
+        </div>
+        <div class="abilities">
+            <div class="name">abilities</div>
+            <div class="content">${abilities}</div>
+        </div>
     `;
 }
 
