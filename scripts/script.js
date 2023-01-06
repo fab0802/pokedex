@@ -37,7 +37,7 @@ async function loadPokemonsFromApi(startId) {
 }
 
 function checkIfLoadMoreButtonShouldBeDisplayed() {
-  if (!(document.body.scrollHeight > document.body.clientHeight) && loadMoreButton.classList.contains("display-none")) {
+  if (!(body.scrollHeight > body.clientHeight)) {
     loadMoreButton.classList.remove("display-none");
   } else if (!loadMoreButton.classList.contains("display-none")) {
     loadMoreButton.classList.add("display-none");

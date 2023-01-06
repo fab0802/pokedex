@@ -107,6 +107,8 @@ header {
 
 main {
   margin-top: 4.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .loading-animation {
@@ -600,9 +602,13 @@ main {
   }
 }
 
-/* big screen load more pokemons button */
+/* big screen */
 
 @media (min-width: 100rem) {
+  .poke-card-container {
+    max-width: 60%;
+  }
+
   .poke-card:last-child {
     margin-bottom: 5rem;
   }
