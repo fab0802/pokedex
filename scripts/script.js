@@ -17,7 +17,7 @@ const loadMoreButton = document.querySelector(".load-more-button");
 
 async function init() {
   await loadPokemonsFromApi(1);
-  // checkIfLoadMoreButtonShouldBeDisplayed();
+  checkIfLoadMoreButtonShouldBeDisplayed();
 }
 
 async function loadPokemonsFromApi(startId) {
@@ -110,7 +110,7 @@ async function loadMorePokemons() {
   if (pokemonsAreFiltered) return;
   const startId = allPokemons.length + 1;
   await loadPokemonsFromApi(startId);
-  // checkIfLoadMoreButtonShouldBeDisplayed();
+  checkIfLoadMoreButtonShouldBeDisplayed();
 }
 
 async function openPokeDetailCard(id) {
