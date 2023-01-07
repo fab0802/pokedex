@@ -17,7 +17,7 @@ const loadMoreButton = document.querySelector(".load-more-button");
 
 async function init() {
   await loadPokemonsFromApi(1);
-  checkIfLoadMoreButtonShouldBeDisplayed();
+  // checkIfLoadMoreButtonShouldBeDisplayed();
 }
 
 async function loadPokemonsFromApi(startId) {
@@ -42,6 +42,8 @@ function checkIfLoadMoreButtonShouldBeDisplayed() {
     loadMoreButton.classList.add("display-none");
   }
 }
+
+// function checkIfLoadMor
 
 async function getDataFromApis(id) {
   const response = await fetch(`${API_URL_POKEMONS}${id}`).catch(errorFunction);
@@ -108,7 +110,7 @@ async function loadMorePokemons() {
   if (pokemonsAreFiltered) return;
   const startId = allPokemons.length + 1;
   await loadPokemonsFromApi(startId);
-  checkIfLoadMoreButtonShouldBeDisplayed();
+  // checkIfLoadMoreButtonShouldBeDisplayed();
 }
 
 async function openPokeDetailCard(id) {

@@ -1,6 +1,7 @@
 :root {
   --primary-color: hsl(0, 0%, 10%);
   --secondary-color: hsl(0, 0%, 100%);
+  --third-color: hsl(0, 0%, 0%);
   --shadow-color: hsla(0, 0%, 90%, 0.8);
   --poke-card-opacity: 1;
   --poke-card-gradient-angle: 180deg;
@@ -8,6 +9,8 @@
   --type-shadow-effect: 10px -2px;
   --type-background-position: -2rem -8rem;
   --type-background-size: 30rem 30rem;
+  --type-detail-background-position: 0 0;
+  --type-detail-background-size: 25rem 25rem;
   --type-color-bug: hsla(83, 54%, 55%, var(--poke-card-opacity));
   --type-color-dragon: hsla(200, 56%, 56%, var(--poke-card-opacity));
   --type-color-dragon-secondary: hsla(8, 83%, 63%, var(--poke-card-opacity));
@@ -118,7 +121,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,12 +178,11 @@ main {
 
 .poke-card .name,
 .poke-card .id,
-.type,
 .poke-detail-card-name,
 .poke-detail-card-type,
 .poke-detail-card-id {
   color: var(--secondary-color);
-  text-shadow: 1px 1px var(--primary-color);
+  text-shadow: 0 0 5px var(--primary-color);
   font-family: "Press Start 2P", cursive;
   text-transform: capitalize;
 }
@@ -193,6 +195,10 @@ main {
 }
 
 .type {
+  color: var(--secondary-color);
+  /* text-shadow: 0 0 5px var(--primary-color); */
+  font-family: "Press Start 2P", cursive;
+  text-transform: capitalize;
   font-size: 0.75rem;
   padding: 0.5rem;
   width: fit-content;
@@ -470,6 +476,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  overflow: hidden;
 }
 
 .poke-detail-card-infos-evolution figure {
@@ -498,7 +505,8 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .poke-detail-card-infos-moves .move {
@@ -538,6 +546,10 @@ main {
 .load-more-button button:active {
   transform: translate(1px, 1px);
 }
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
 
 /* Mobile views */
 
