@@ -156,7 +156,7 @@ async function nextPokemon(id) {
     id = 1;
   } else if (id > allPokemons.length) {
     await loadMorePokemons();
-    renderAllPokemons(id);
+    renderPokemons(id);
   }
   await openPokeDetailCard(id);
 }
